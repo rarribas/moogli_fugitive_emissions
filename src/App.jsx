@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { PageHeader } from "./components/ui/pageHeader"
+import Dashboard from "./components/Dashboard"
+import { headerColumns, data } from "./data/mainTableData";
+import DataTable from "./components/ui/DataTable";
 
 function App() {
 
@@ -7,7 +9,8 @@ function App() {
     <div className="flex">
      <aside className='h-screen w-[250px] bg-white'></aside>
      <main className='h-screen bg-[#F7F9FC] flex-1 p-[38px]'>
-      <PageHeader/>
+      <Dashboard/>
+      <DataTable columns={headerColumns} data={data}/>
      </main>
     </div>
   )

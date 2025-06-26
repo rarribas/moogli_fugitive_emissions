@@ -1,6 +1,6 @@
-export function PageHeader(){
+export function PageHeader({title, descp}){
   return (<header>
-    <h1>Fugitive Emissions</h1>
-    <p className='font-sans text-base'>Fugitive emissions represent a significant proportion of anthropogenic greenhouse gas emissions and their assessment, let alone reduction, is still in its infancy.</p>
+    <h1>{title}</h1>
+    <p className='font-sans text-sm'>{descp}</p>
   </header>)
 }
