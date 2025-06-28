@@ -30,7 +30,7 @@ function isValidDate(date) {
   return !isNaN(date.getTime())
 }
 
-export default function DatePicker() {
+export default function DatePicker({onChange}) {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState(new Date("2025-06-01"))
   const [month, setMonth] = React.useState(date)
@@ -89,6 +89,10 @@ export default function DatePicker() {
                 setDate(selectedDate)
                 setValue(formatDate(selectedDate))
                 setOpen(false)
+
+                if(onChange) onChange(formatDate(selectedDate))
+
+                console.log(selectedDate, formatDate(selectedDate))
               }}
             />
           </PopoverContent>

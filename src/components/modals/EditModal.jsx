@@ -9,7 +9,6 @@ import {
 import { Button } from "../ui/button";
 
 export default function EditModal({editableRow}) {
-  console.log(editableRow);
   return(
     <Dialog>
       <DialogTrigger asChild>

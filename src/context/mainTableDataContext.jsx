@@ -23,10 +23,27 @@ function Provider({children}){
     setTableData(newEmissions);
   }
 
+  const addPeriodicReview = (reviewToAdd) => {
+    const newEmissions = tableData.map((tdata) => {
+    if (tdata.id === reviewToAdd.parentId) {
+      return {
+        ...tdata,
+        periodic_reviews: [...(tdata.periodic_reviews || []), reviewToAdd],
+      }
+    }
+    return tdata
+  })
+
+    console.log(newEmissions, "ADD!!!");
+
+    setTableData(newEmissions);
+  }
+
   const valueToShare = {
     tableData,
     editTableData,
-    deletePeriodicReview
+    deletePeriodicReview,
+    addPeriodicReview
   }
 
   return (

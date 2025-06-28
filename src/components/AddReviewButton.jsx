@@ -1,12 +1,13 @@
 import { Button } from "./ui/button";
-// import { useContext}  from "react";
-// import TableDataContext from "@/context/MainTableDataContext";
+import { useContext}  from "react";
+import TableDataContext from "@/context/MainTableDataContext";
 
 export default function DeleteReviewButton({rowToAdd}){
-  // const {deletePeriodicReview} = useContext(TableDataContext);
+  const {addPeriodicReview} = useContext(TableDataContext);
 
   const onButtonClick = (ev) => {
     ev.preventDefault();
+    addPeriodicReview(rowToAdd)
     console.log("ADD ROW", rowToAdd)
   }
 

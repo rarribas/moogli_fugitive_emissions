@@ -7,26 +7,35 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "../ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DataTable from "../DataTable";
 import { periodicReviewsHeader } from "@/data/mockedTableData";
 
 export default function AddModal({activeRow}) {
-  const [tableData, setTableDate] = useState(activeRow?.periodic_reviews);
+  // console.log("RE RENDERS", activeRow?.periodic_reviews);
+  const [tableData, setTableData] = useState(activeRow?.periodic_reviews);
+  
+  useEffect(() => {
+    // console.log("USE EFFECT");
+    setTableData(activeRow?.periodic_reviews)
+  }, [activeRow, activeRow?.periodic_reviews])
   
   const onAddPeriodicReviewClicked = (ev) => {
     ev.preventDefault();
     const addPlaceholder = {
+      parentId: activeRow.id,
       date_review: "",
       report: "",
       isPlaceholder: true,
     }
     
-    setTableDate([
+    setTableData([
       ...activeRow.periodic_reviews,
       addPlaceholder
     ])
   }
+
+  console.log(tableData, tableData.length, "??");
 
   return(
     <Dialog>

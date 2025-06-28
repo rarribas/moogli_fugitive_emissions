@@ -53,7 +53,9 @@ export const periodicReviewsHeader = [{
   cell: ({row, getValue}) => {
     return (
       row.original.isPlaceholder ? 
-        <DatePicker/>
+        <DatePicker onChange={(newDate) => {
+          row.original.date_review = newDate
+        }}/>
         : getValue()
     )
   },
