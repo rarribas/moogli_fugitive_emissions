@@ -29,6 +29,7 @@ function Provider({children}){
       return {
         ...tdata,
         periodic_reviews: [...(tdata.periodic_reviews || []), reviewToAdd],
+        isPlaceholder: false,
       }
     }
     return tdata

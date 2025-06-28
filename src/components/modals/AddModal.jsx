@@ -16,7 +16,7 @@ export default function AddModal({activeRow}) {
   const [tableData, setTableData] = useState(activeRow?.periodic_reviews);
   
   useEffect(() => {
-    // console.log("USE EFFECT");
+    console.log("USE EFFECT", activeRow?.periodic_reviews);
     setTableData(activeRow?.periodic_reviews)
   }, [activeRow, activeRow?.periodic_reviews])
   
@@ -35,7 +35,7 @@ export default function AddModal({activeRow}) {
     ])
   }
 
-  console.log(tableData, tableData.length, "??");
+  // console.log(tableData, tableData.length, "??");
 
   return(
     <Dialog>
