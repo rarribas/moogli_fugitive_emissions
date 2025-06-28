@@ -1,6 +1,8 @@
 import AddModal from "@/components/modals/AddModal";
 import EditModal from "@/components/modals/EditModal";
 import DeleteReviewButton from "@/components/DeleteReviewButton";
+import AddReviewButton from "@/components/AddReviewButton";
+import DatePicker from "@/components/ui/DatePicker";
 import { v4 as uuidv4 } from 'uuid';
 
 export const headerColumns = [
@@ -47,7 +49,14 @@ export const headerColumns = [
 
 export const periodicReviewsHeader = [{
   accessorKey: "date_review",
-  header: "Date of Review"
+  header: "Date of Review",
+  cell: ({row, getValue}) => {
+    return (
+      row.original.isPlaceholder ? 
+        <DatePicker/>
+        : getValue()
+    )
+  },
 }, {
   accessorKey: "report",
   header: "Maintainance report"
@@ -56,7 +65,9 @@ export const periodicReviewsHeader = [{
   header: "", // no column title
   cell: ({row}) => {
     return (
-      <DeleteReviewButton rowToDelete={row.original}/>
+      row.original.isPlaceholder ? 
+        <AddReviewButton rowToAdd={row.original}/>
+        : <DeleteReviewButton rowToDelete={row.original}/> 
     )
   },
 },];
