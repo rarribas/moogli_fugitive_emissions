@@ -11,9 +11,22 @@ function Provider({children}){
     setTableData(dataToEdit);
   }
 
+  const deletePeriodicReview = (reviewToDelete) => {
+    const newEmissions = tableData.map((tdata) => {
+      if(tdata.periodic_reviews){
+        tdata.periodic_reviews = tdata.periodic_reviews.filter((pReview) => pReview.id !== reviewToDelete.id)
+      }
+      
+      return tdata;
+    });
+
+    setTableData(newEmissions);
+  }
+
   const valueToShare = {
     tableData,
-    editTableData
+    editTableData,
+    deletePeriodicReview
   }
 
   return (

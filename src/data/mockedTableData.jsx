@@ -1,20 +1,32 @@
-import { Button } from "@/components/ui/button";
 import AddModal from "@/components/modals/AddModal";
 import EditModal from "@/components/modals/EditModal";
-
+import DeleteReviewButton from "@/components/DeleteReviewButton";
+import { v4 as uuidv4 } from 'uuid';
 
 export const headerColumns = [
   {
-    accessorKey: "equipment",
-    header: "Equipment",
+    accessorKey: "equipment_name",
+    header: "Equipment Name",
   },
   {
-    accessorKey: "refrigerant",
-    header: "Refrigerant",
+    accessorKey: "refrigerant_type",
+    header: "Refrigerant Type",
   },
   {
-    accessorKey: "gwp",
-    header: "GWP",
+    accessorKey: "gwp_factor",
+    header: "GWP Factor",
+  },
+  {
+    accessorKey: "capacity",
+    header: "Capacity (kg)",
+  },
+  {
+    accessorKey: "location",
+    header: "Location",
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
   },
   {
     id: "actions", // custom column
@@ -25,18 +37,69 @@ export const headerColumns = [
 
       return (
         <div>
-          <AddModal/>
+          <AddModal activeRow={original}/>
           <EditModal editableRow={original}/>
         </div> 
       )
     },
   },
-]
+];
+
+export const periodicReviewsHeader = [{
+  accessorKey: "date_review",
+  header: "Date of Review"
+}, {
+  accessorKey: "report",
+  header: "Maintainance report"
+},{
+  id: "actions", // custom column
+  header: "", // no column title
+  cell: ({row}) => {
+    return (
+      <DeleteReviewButton rowToDelete={row.original}/>
+    )
+  },
+},];
 
 export const data = [
   { _group: "Air-conditioning" },
-  { equipment: "A/C Headquarters-1", refrigerant: "R_404", gwp: "3260" },
-  { equipment: "A/C VAL-1", refrigerant: "R_404", gwp: "3260" },
+  {
+    id: uuidv4(),
+    equipment_name: "A/C Headquarters-1",
+    refrigerant_type: "R_404A",
+    gwp_factor: "3260",
+    capacity: "6.5",
+    location: "Headquarters",
+    status: "Operational",
+    periodic_reviews: [{
+      id:uuidv4(),
+      date_review: "02/02/2024",
+      report: "IMG.png"
+    },{
+      id:uuidv4(),
+      date_review: "02/02/2024",
+      report: "IMG.png"
+    }],
+  },
+  {
+    id: uuidv4(),
+    equipment_name: "A/C VAL-1",
+    refrigerant_type: "R_404",
+    gwp_factor: "3260",
+    capacity: "5.0",
+    location: "Headquarters",
+    status: "Under Maintenance",
+    periodic_reviews: [],
+  },
   { _group: "Freezers" },
-  { equipment: "HQ-freezer1", refrigerant: "R_410", gwp: "2800" },
-]
+  {
+    id: uuidv4(),
+    equipment_name: "HQ-freezer1",
+    refrigerant_type: "R_410",
+    gwp_factor: "2800",
+    capacity: "3.2",
+    location: "Headquarters",
+    status: "Operational",
+    periodic_reviews: [],
+  },
+];

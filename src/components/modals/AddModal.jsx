@@ -7,8 +7,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "../ui/button";
+import DataTable from "../DataTable";
+import { periodicReviewsHeader } from "@/data/mockedTableData";
 
-export default function AddModal() {
+export default function AddModal({activeRow}) {
   return(
     <Dialog>
       <DialogTrigger asChild>
@@ -17,9 +19,10 @@ export default function AddModal() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Add Periodic Reviews</DialogTitle>
-          <DialogDescription>
-            [TODO] Add content here for Periodic reviews
-          </DialogDescription>
+          <div>
+            <DataTable columns={periodicReviewsHeader} data={activeRow.periodic_reviews}/>
+            <Button onClick={() => console.log("ADD BUTTON CLICKED")}>Add Periodic Reviews</Button>
+          </div>
         </DialogHeader>
       </DialogContent>
     </Dialog>

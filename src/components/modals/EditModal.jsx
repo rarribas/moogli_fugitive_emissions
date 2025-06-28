@@ -15,7 +15,10 @@ export default function EditModal({editableRow}) {
       <DialogTrigger asChild>
         <Button variant="outline">Edit</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent 
+        className="fixed left-[100%] top-[50%] translateX-[-100%] h-full w-full"
+        // side="right"
+      >
         <DialogHeader>
           <DialogTitle>Edit Periodic Reviews</DialogTitle>
           <DialogDescription>
