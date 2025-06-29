@@ -15,7 +15,8 @@ export default function EditModal({editableRow}) {
         <Button variant="outline">Edit</Button>
       </DialogTrigger>
       <DialogContent 
-        className="fixed left-[100%] top-[50%] translateX-[-100%] h-full w-full"
+        variant="side_panel"
+        // className="fixed left-[100%] top-[50%] translateX-[-100%] h-full w-full"
         // side="right"
       >
         <DialogHeader>
