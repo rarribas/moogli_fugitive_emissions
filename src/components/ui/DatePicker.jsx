@@ -91,8 +91,6 @@ export default function DatePicker({onChange}) {
                 setOpen(false)
 
                 if(onChange) onChange(formatDate(selectedDate))
-
-                console.log(selectedDate, formatDate(selectedDate))
               }}
             />
           </PopoverContent>

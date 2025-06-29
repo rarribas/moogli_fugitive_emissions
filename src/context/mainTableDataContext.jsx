@@ -25,17 +25,53 @@ function Provider({children}){
 
   const addPeriodicReview = (reviewToAdd) => {
     const newEmissions = tableData.map((tdata) => {
-    if (tdata.id === reviewToAdd.parentId) {
+      if (tdata.id === reviewToAdd.parentId) {
+      // Remove placeholder
+      const withoutPlaceholder = tdata.periodic_reviews.filter(review => !review.isPlaceholder);
       return {
-        ...tdata,
-        periodic_reviews: [...(tdata.periodic_reviews || []), reviewToAdd],
-        isPlaceholder: false,
+          ...tdata,
+          periodic_reviews: [...withoutPlaceholder, reviewToAdd],
+        }
       }
-    }
-    return tdata
-  })
+      return tdata
+    })
 
-    console.log(newEmissions, "ADD!!!");
+    setTableData(newEmissions);
+  }
+
+  const cleanPlaceholders = (reviewToClean) => {
+    const newEmissions = tableData.map((tdata) => {
+      if (tdata.id === reviewToClean.id) {
+        // Remove placeholder
+        const withoutPlaceholder = tdata.periodic_reviews.filter(review => !review.isPlaceholder);
+        return {
+          ...tdata,
+          periodic_reviews: [...withoutPlaceholder],
+        }
+      }
+      return tdata
+    })
+
+    setTableData(newEmissions);
+  } 
+
+  const addPeriodicReviewPlaceholder = (activeEmission) => {
+    const placeholder = {
+      parentId: activeEmission.id,
+      date_review: "",
+      report: "",
+      isPlaceholder: true,
+    }
+
+    const newEmissions = tableData.map((tdata) => {
+    if (tdata.id === activeEmission.id) {
+        return {
+          ...tdata,
+          periodic_reviews: [...(tdata.periodic_reviews || []), placeholder],
+        }
+      }
+      return tdata
+    })
 
     setTableData(newEmissions);
   }
@@ -44,7 +80,9 @@ function Provider({children}){
     tableData,
     editTableData,
     deletePeriodicReview,
-    addPeriodicReview
+    addPeriodicReview,
+    addPeriodicReviewPlaceholder,
+    cleanPlaceholders
   }
 
   return (

@@ -7,8 +7,10 @@ export default function DeleteReviewButton({rowToAdd}){
 
   const onButtonClick = (ev) => {
     ev.preventDefault();
-    addPeriodicReview(rowToAdd)
-    console.log("ADD ROW", rowToAdd)
+    addPeriodicReview({
+      ...rowToAdd,
+      isPlaceholder: false,
+    })
   }
 
   return (

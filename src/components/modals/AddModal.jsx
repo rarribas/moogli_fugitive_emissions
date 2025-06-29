@@ -7,38 +7,29 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "../ui/button";
-import { useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import DataTable from "../DataTable";
 import { periodicReviewsHeader } from "@/data/mockedTableData";
+import TableDataContext from "@/context/mainTableDataContext";
 
 export default function AddModal({activeRow}) {
-  // console.log("RE RENDERS", activeRow?.periodic_reviews);
-  const [tableData, setTableData] = useState(activeRow?.periodic_reviews);
+  const {cleanPlaceholders, addPeriodicReviewPlaceholder} = useContext(TableDataContext);
+  const [isOpen, setIsOpen] = useState(false);
   
-  useEffect(() => {
-    console.log("USE EFFECT", activeRow?.periodic_reviews);
-    setTableData(activeRow?.periodic_reviews)
-  }, [activeRow, activeRow?.periodic_reviews])
-  
+  const handleDialogChange = (open) => {
+    setIsOpen(open);
+    if (!open) {
+      cleanPlaceholders(activeRow);
+    }
+  };
+
   const onAddPeriodicReviewClicked = (ev) => {
     ev.preventDefault();
-    const addPlaceholder = {
-      parentId: activeRow.id,
-      date_review: "",
-      report: "",
-      isPlaceholder: true,
-    }
-    
-    setTableData([
-      ...activeRow.periodic_reviews,
-      addPlaceholder
-    ])
+    addPeriodicReviewPlaceholder(activeRow);
   }
 
-  // console.log(tableData, tableData.length, "??");
-
   return(
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={handleDialogChange}>
       <DialogTrigger asChild>
         <Button variant="outline">Add</Button>
       </DialogTrigger>
@@ -46,7 +37,7 @@ export default function AddModal({activeRow}) {
         <DialogHeader>
           <DialogTitle>Add Periodic Reviews</DialogTitle>
           <div>
-            <DataTable columns={periodicReviewsHeader} data={tableData}/>
+            <DataTable columns={periodicReviewsHeader} data={activeRow?.periodic_reviews}/>
             <Button onClick={onAddPeriodicReviewClicked}>Add Periodic Reviews</Button>
           </div>
         </DialogHeader>
