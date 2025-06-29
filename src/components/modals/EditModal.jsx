@@ -16,8 +16,6 @@ export default function EditModal({editableRow}) {
       </DialogTrigger>
       <DialogContent 
         variant="side_panel"
-        // className="fixed left-[100%] top-[50%] translateX-[-100%] h-full w-full"
-        // side="right"
       >
         <DialogHeader>
           <DialogTitle>Edit Periodic Reviews</DialogTitle>
