@@ -1,10 +1,10 @@
-import AddModal from "@/components/modals/AddModal";
-import EditModal from "@/components/modals/EditModal";
-import DeleteReviewButton from "@/components/DeleteReviewButton";
-import AddReviewButton from "@/components/AddReviewButton";
+import AddModal from "@/components/ui/modals/AddModal";
+import EditModal from "@/components/ui/modals/EditModal";
+import DeleteReviewButton from "@/components/ui/modals/DeleteReviewButton";
+import AddReviewButton from "@/components/ui/modals/AddReviewButton";
 import DatePicker from "@/components/ui/DatePicker";
-import { Input } from "@/components/ui/input";
-import { v4 as uuidv4 } from 'uuid';
+import { Input } from "@/components/ui/Input";
+import { emissionsData } from "../data/emissionsData";
 
 export const headerColumns = [
   {
@@ -86,45 +86,5 @@ export const periodicReviewsHeader = [{
   },
 },];
 
-export const data = [
-  { _group: "Air-conditioning" },
-  {
-    id: uuidv4(),
-    equipment_name: "A/C Headquarters-1",
-    refrigerant_type: "R_404A",
-    gwp_factor: "3260",
-    capacity: "6.5",
-    location: "Headquarters",
-    status: "Operational",
-    periodic_reviews: [{
-      id:uuidv4(),
-      date_review: "02/02/2024",
-      report: "IMG.png"
-    },{
-      id:uuidv4(),
-      date_review: "02/02/2024",
-      report: "IMG.png"
-    }],
-  },
-  {
-    id: uuidv4(),
-    equipment_name: "A/C VAL-1",
-    refrigerant_type: "R_404",
-    gwp_factor: "3260",
-    capacity: "5.0",
-    location: "Headquarters",
-    status: "Under Maintenance",
-    periodic_reviews: [],
-  },
-  { _group: "Freezers" },
-  {
-    id: uuidv4(),
-    equipment_name: "HQ-freezer1",
-    refrigerant_type: "R_410",
-    gwp_factor: "2800",
-    capacity: "3.2",
-    location: "Headquarters",
-    status: "Operational",
-    periodic_reviews: [],
-  },
-];
+export {emissionsData as data};
+

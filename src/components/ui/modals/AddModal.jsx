@@ -5,11 +5,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "../ui/button";
+} from "@/components/ui/Dialog"
+import { Button } from "../Button";
 import { useContext, useState } from "react";
 import DataTable from "../DataTable";
-import { periodicReviewsHeader } from "@/data/mockedTableData";
+import { periodicReviewsHeader } from "@/components/TableConfiguration";
 import TableDataContext from "@/context/mainTableDataContext";
 
 export default function AddModal({activeRow}) {
@@ -33,13 +33,15 @@ export default function AddModal({activeRow}) {
       <DialogTrigger asChild>
         <Button variant="outline">Add</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent aria-describedby="Add Modal Content">
         <DialogHeader>
           <DialogTitle>Add Periodic Reviews</DialogTitle>
-          <div>
-            <DataTable columns={periodicReviewsHeader} data={activeRow?.periodic_reviews}/>
-            <Button onClick={onAddPeriodicReviewClicked}>Add Periodic Reviews</Button>
-          </div>
+          <DialogDescription asChild>
+            <>
+              <DataTable columns={periodicReviewsHeader} data={activeRow?.periodic_reviews}/>
+              <Button onClick={onAddPeriodicReviewClicked}>Add Periodic Reviews</Button>
+            </>
+          </DialogDescription>
         </DialogHeader>
       </DialogContent>
     </Dialog>

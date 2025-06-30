@@ -1,5 +1,4 @@
 import {
-  // ColumnDef,
   flexRender,
   useReactTable,
   getCoreRowModel
@@ -12,7 +11,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/Table"
 
 export default function DataTable({columns, data}){
   const table = useReactTable({

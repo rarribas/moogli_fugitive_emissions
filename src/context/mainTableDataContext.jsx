@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { data } from "@/data/mockedTableData";
+import { data } from "@/components/TableConfiguration";
 
 const TableDataContext = createContext(null);
 

@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button"
-import Dashboard from "./components/Dashboard"
+import { Button } from "@/components/ui/Button"
+import Dashboard from "./components/ui/modals/Dashboard"
 
 function App() {
 

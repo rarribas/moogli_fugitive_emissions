@@ -5,8 +5,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "../ui/button";
+} from "@/components/ui/Dialog"
+import { Button } from "../Button";
 
 export default function EditModal({editableRow}) {
   return(
