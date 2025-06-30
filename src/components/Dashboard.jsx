@@ -2,7 +2,7 @@ import { PageHeader } from "./PageHeader";
 import { headerColumns } from "@/data/mockedTableData";
 import DataTable from "./DataTable";
 import { useContext } from "react";
-import TableDataContext from "@/context/MainTableDataContext";
+import TableDataContext from "@/context/mainTableDataContext";
 
 export default function Dashboard(){
   const {tableData} = useContext(TableDataContext);
