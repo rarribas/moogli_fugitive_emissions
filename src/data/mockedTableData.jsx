@@ -3,6 +3,7 @@ import EditModal from "@/components/modals/EditModal";
 import DeleteReviewButton from "@/components/DeleteReviewButton";
 import AddReviewButton from "@/components/AddReviewButton";
 import DatePicker from "@/components/ui/DatePicker";
+import { Input } from "@/components/ui/input";
 import { v4 as uuidv4 } from 'uuid';
 
 export const headerColumns = [
@@ -61,10 +62,21 @@ export const periodicReviewsHeader = [{
   },
 }, {
   accessorKey: "report",
-  header: "Maintainance report"
+  header: "Maintainance report",
+  cell: ({row, getValue}) => {
+    return (
+      row.original.isPlaceholder ? 
+        <Input type="file" onChange={(ev) => {
+          const newFile = ev.target.files?.[0]
+          if(!newFile) return;
+          row.original.report = newFile.name;
+        }}/>
+        : getValue()
+    )
+  },
 },{
-  id: "actions", // custom column
-  header: "", // no column title
+  id: "actions", 
+  header: "", 
   cell: ({row}) => {
     return (
       row.original.isPlaceholder ? 
