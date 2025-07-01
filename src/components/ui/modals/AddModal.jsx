@@ -37,10 +37,10 @@ export default function AddModal({activeRow}) {
         <DialogHeader>
           <DialogTitle>Add Periodic Reviews</DialogTitle>
           <DialogDescription asChild>
-            <>
+            <div>
               <DataTable columns={periodicReviewsHeader} data={activeRow?.periodic_reviews}/>
               <Button onClick={onAddPeriodicReviewClicked}>Add Periodic Reviews</Button>
-            </>
+            </div>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
