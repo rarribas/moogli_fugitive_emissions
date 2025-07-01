@@ -1,4 +1,5 @@
 import { Button } from "../Button";
+import Header from "./Header";
 import { useState } from "react";
 
 export default function DetailsTab({ editableRow }) {
@@ -9,17 +10,18 @@ export default function DetailsTab({ editableRow }) {
     <>
       {editDetails ? (
         <div>
-          <header className="w-full flex items-center justify-between">
+          <Header>
             <h2>{editableRow.equipment_name}</h2>
-          </header>
+          </Header>
           <p>Edit Mode</p>
         </div>
       ) : (
         <div>
-          <header className="w-full flex items-center justify-between">
+          <Header>
             <h2>{editableRow.equipment_name}</h2>
             <Button onClick={() => setEditDetails(true)}>Edit</Button>
-          </header>
+          </Header>
+            
           <p>View Mode</p>
         </div>
       )}
