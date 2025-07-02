@@ -55,7 +55,7 @@ export default function DetailsTab({ editableRow }) {
             <Label htmlFor="capacity">Capacity</Label>
             <Input id="capacity" type="number" value={editableData.capacity} onChange={onInputChange} />
           </div>
-          
+          <Button type="submit">Submit</Button>
         </div>
       )}
     </>
