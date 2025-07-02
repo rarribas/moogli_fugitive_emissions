@@ -4,8 +4,8 @@ export const emissionsData = [
   { _group: "Air-conditioning" },
   {
     id: uuidv4(),
-    equipment_name: "A/C Headquarters-1",
-    refrigerant_type: "R_404A",
+    equipmentName: "A/C Headquarters-1",
+    refrigerantType: "R_404A",
     gwp_factor: "3260",
     capacity: "6.5",
     location: "Headquarters",
@@ -26,8 +26,8 @@ export const emissionsData = [
   },
   {
     id: uuidv4(),
-    equipment_name: "A/C VAL-1",
-    refrigerant_type: "R_404",
+    equipmentName: "A/C VAL-1",
+    refrigerantType: "R_404",
     gwp_factor: "3260",
     capacity: "5.0",
     location: "Headquarters",
@@ -41,8 +41,8 @@ export const emissionsData = [
   { _group: "Freezers" },
   {
     id: uuidv4(),
-    equipment_name: "HQ-freezer1",
-    refrigerant_type: "R_410",
+    equipmentName: "HQ-freezer1",
+    refrigerantType: "R_410",
     gwp_factor: "2800",
     capacity: "3.2",
     location: "Headquarters",

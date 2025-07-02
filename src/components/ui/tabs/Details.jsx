@@ -1,14 +1,18 @@
 import { Button } from "../Button";
 import Header from "./Header";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Input } from "../Input";
 import { Label } from "../Label";
+import TableDataContext from "@/context/mainTableDataContext"; 
 
 export default function DetailsTab({ editableRow }) {
   const [editDetails, setEditDetails] = useState(false);
+  const {editTableData} = useContext(TableDataContext);
+
   const [editableData, setEditableData] = useState({
-    equipmentName: editableRow.equipment_name,
-    refrigerantType: editableRow.refrigerant_type,
+    id: editableRow.id,
+    equipmentName: editableRow.equipmentName,
+    refrigerantType: editableRow.refrigerantType,
     capacity: editableRow.capacity,
     location: editableRow.location,
     year: editableRow.year,
@@ -16,6 +20,13 @@ export default function DetailsTab({ editableRow }) {
     type: editableRow.type,
     use: editableRow.use,
   });
+
+  const onFormSubmit = (ev) =>{ 
+    ev.preventDefault();
+
+    console.log("SUBMIT");
+    editTableData(editableData)
+  }
 
   const onInputChange = (ev) => {
     ev.preventDefault();
@@ -32,14 +43,14 @@ export default function DetailsTab({ editableRow }) {
       {editDetails ? (
         <div>
           <Header>
-            <h2>{editableRow.equipment_name}</h2>
+            <h2>{editableRow.equipmentName}</h2>
           </Header>
           <p>Edit Mode</p>
         </div>
       ) : (
-        <div>
+        <form onSubmit={onFormSubmit}>
           <Header>
-            <h2>{editableRow.equipment_name}</h2>
+            <h2>{editableRow.equipmentName}</h2>
             <Button onClick={() => setEditDetails(true)}>Edit</Button>
           </Header>
             
@@ -56,7 +67,7 @@ export default function DetailsTab({ editableRow }) {
             <Input id="capacity" type="number" value={editableData.capacity} onChange={onInputChange} />
           </div>
           <Button type="submit">Submit</Button>
-        </div>
+        </form>
       )}
     </>
   );

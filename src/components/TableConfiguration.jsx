@@ -8,11 +8,11 @@ import { emissionsData } from "../data/emissionsData";
 
 export const headerColumns = [
   {
-    accessorKey: "equipment_name",
+    accessorKey: "equipmentName",
     header: "Equipment Name",
   },
   {
-    accessorKey: "refrigerant_type",
+    accessorKey: "refrigerantType",
     header: "Refrigerant Type",
   },
   {

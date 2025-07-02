@@ -6,9 +6,20 @@ const TableDataContext = createContext(null);
 function Provider({children}){
   const [tableData, setTableData] = useState(data);
 
-  const editTableData = (dataToEdit) => {
-    // TODO - This needs to be implemented
-    setTableData(dataToEdit);
+  const editTableData = (emissionsData) => {
+
+    const newData = tableData.map((tdata) => {
+      if(tdata.id && tdata.id === emissionsData.id){
+        return {
+          ...tdata,
+          ...emissionsData
+        }
+      }else{
+        return tdata
+      }
+    })
+
+    setTableData(newData);
   }
 
   const deletePeriodicReview = (reviewToDelete) => {
