@@ -2,11 +2,19 @@ import { useState, useContext } from "react";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { Label } from "../Label";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent
+} from "@/components/ui/select"
+import { typeOfEquipmentOptions } from "@/data/selectsData";
 import TableDataContext from "@/context/mainTableDataContext"; 
+import useSelectOptions from "@/hooks/useSelectOptions";
 
 export default function DetailsEditMode({editableRow, setEditDetails}){
   const {editTableData} = useContext(TableDataContext);
-
+  
   const [editableData, setEditableData] = useState({
     id: editableRow.id,
     equipmentName: editableRow.equipmentName,
@@ -18,6 +26,8 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
     type: editableRow.type,
     use: editableRow.use,
   });
+
+  const typeOptions = useSelectOptions(typeOfEquipmentOptions);
 
   const onFormSubmit = (ev) =>{ 
     ev.preventDefault();
@@ -51,6 +61,26 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
           <Label htmlFor="capacity">Capacity</Label>
           <Input id="capacity" type="number" value={editableData.capacity} onChange={onInputChange} />
         </div>
+        <div>
+          <Label htmlFor="capacity">Capacity</Label>
+          <Input id="capacity" type="number" value={editableData.capacity} onChange={onInputChange} />
+        </div>
+        <div>
+          <Label htmlFor="type">Type</Label>
+          <Select id="type" 
+            onValueChange={(value) =>
+              setEditableData({ ...editableData, type: value })
+            } value={editableData.type}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select a Type" />
+            </SelectTrigger>
+            <SelectContent>
+              {typeOptions}
+            </SelectContent>
+          </Select>
+        </div>
+        
         <Button type="submit">Submit</Button>
       </form>
     </div>

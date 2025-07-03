@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { typeOfEquipmentOptions } from './selectsData';
 
 export const emissionsData = [
   { _group: "Air-conditioning" },
@@ -12,7 +13,7 @@ export const emissionsData = [
     status: "Operational",
     year: "2022",
     maintenance_cycle: "Annually",
-    type: "Air-conditioning",
+    type: "air-conditioning",
     use: "Small Space",
     periodic_reviews: [{
       id:uuidv4(),
@@ -34,7 +35,7 @@ export const emissionsData = [
     status: "Under Maintenance",
     year: "2022",
     maintenance_cycle: "Annually",
-    type: "Air-conditioning",
+    type: "air-conditioning",
     use: "Small Space",
     periodic_reviews: [],
   },
@@ -49,7 +50,7 @@ export const emissionsData = [
     status: "Operational",
     year: "2022",
     maintenance_cycle: "Annually",
-    type: "Freezers",
+    type: "freezers",
     use: "Small Space",
     periodic_reviews: [],
   },
