@@ -79,6 +79,7 @@ export const periodicReviewsHeader = [{
   id: "actions", 
   header: "", 
   cell: ({row}) => {
+    console.log(row.original, "RE RENDERS??")
     return (
       row.original.isPlaceholder ? 
         <AddReviewButton rowToAdd={row.original}/>

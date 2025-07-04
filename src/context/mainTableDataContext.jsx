@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { data, groupData } from "@/components/TableConfiguration";
+import { v4 as uuidv4 } from 'uuid';
 
 const TableDataContext = createContext(null);
 
@@ -37,13 +38,18 @@ function Provider({children}){
   }
 
   const addPeriodicReview = (reviewToAdd) => {
+    const reviewToAddWithId = {
+      ...reviewToAdd,
+      id: uuidv4()
+    }
+
     const newEmissions = tableData.map((tdata) => {
-      if (tdata.id === reviewToAdd.parentId) {
+      if (tdata.id === reviewToAddWithId.parentId) {
       // Remove placeholder
       const withoutPlaceholder = tdata.periodic_reviews.filter(review => !review.isPlaceholder);
       return {
           ...tdata,
-          periodic_reviews: [...withoutPlaceholder, reviewToAdd],
+          periodic_reviews: [...withoutPlaceholder, reviewToAddWithId],
         }
       }
       return tdata
