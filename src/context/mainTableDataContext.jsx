@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
-import { data } from "@/components/TableConfiguration";
+import { data, groupData } from "@/components/TableConfiguration";
 
 const TableDataContext = createContext(null);
 
 function Provider({children}){
-  const [tableData, setTableData] = useState(data);
+  const [tableData, setTableData] = useState(groupData(data));
 
   const editTableData = (emissionsData) => {
-
+    
     const newData = tableData.map((tdata) => {
       if(tdata.id && tdata.id === emissionsData.id){
         return {
@@ -19,7 +19,9 @@ function Provider({children}){
       }
     })
 
-    setTableData(newData);
+    const reGroupData = groupData(newData);
+
+    setTableData(reGroupData);
   }
 
   const deletePeriodicReview = (reviewToDelete) => {

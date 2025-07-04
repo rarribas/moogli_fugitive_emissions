@@ -5,6 +5,7 @@ import AddReviewButton from "@/components/ui/modals/AddReviewButton";
 import DatePicker from "@/components/ui/DatePicker";
 import { Input } from "@/components/ui/Input";
 import { emissionsData } from "../data/emissionsData";
+import { groupData } from "@/helpers/groupData";
 
 export const headerColumns = [
   {
@@ -87,4 +88,7 @@ export const periodicReviewsHeader = [{
 },];
 
 export {emissionsData as data};
+export {groupData}
+
+
 
