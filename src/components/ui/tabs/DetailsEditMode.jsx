@@ -8,7 +8,7 @@ import {
   SelectValue,
   SelectContent
 } from "@/components/ui/select"
-import { typeOfEquipmentOptions } from "@/data/selectsData";
+import { typeOfEquipmentOptions, locationsOptions } from "@/data/selectsData";
 import TableDataContext from "@/context/mainTableDataContext"; 
 import useSelectOptions from "@/hooks/useSelectOptions";
 
@@ -28,6 +28,7 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
   });
 
   const typeOptions = useSelectOptions(typeOfEquipmentOptions);
+  const locationOpts = useSelectOptions(locationsOptions);
 
   const onFormSubmit = (ev) =>{ 
     ev.preventDefault();
@@ -77,6 +78,22 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
             </SelectTrigger>
             <SelectContent>
               {typeOptions}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div>
+          <Label htmlFor="location">Location</Label>
+          <Select id="location" 
+            onValueChange={(value) =>
+              setEditableData({ ...editableData, location: value })
+            } value={editableData.location}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select a Location" />
+            </SelectTrigger>
+            <SelectContent>
+              {locationOpts}
             </SelectContent>
           </Select>
         </div>

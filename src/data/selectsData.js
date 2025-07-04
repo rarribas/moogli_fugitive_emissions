@@ -12,3 +12,11 @@ export const typeOfEquipmentOptions = [
   { label: "Refrigerated Transport", value: "refrigerated-transport" },
   { label: "Vending machines", value: "vending-machines" },
 ]
+
+export const locationsOptions = [
+  { label: "Moogli Holdings", value: "moogli-holdings" },
+  { label: "Moogli Valencia", value: "moogli-valencia" },
+  { label: "Moogli Madrid", value: "moogli-madrid" },
+  { label: "Moogli Amsterdam", value: "moogli-amsterdam" },
+  { label: "Moogli Chile", value: "moogli-chile" },
+];
