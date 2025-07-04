@@ -6,6 +6,7 @@ const TableDataContext = createContext(null);
 
 function Provider({children}){
   const [tableData, setTableData] = useState(groupData(data));
+  const [hasPlaceHolder, sethasPlaceHolder] = useState(false);
 
   const editTableData = (emissionsData) => {
     
@@ -56,6 +57,7 @@ function Provider({children}){
     })
 
     setTableData(newEmissions);
+    sethasPlaceHolder(false);
   }
 
   const cleanPlaceholders = (reviewToClean) => {
@@ -72,6 +74,7 @@ function Provider({children}){
     })
 
     setTableData(newEmissions);
+    sethasPlaceHolder(false);
   } 
 
   const addPeriodicReviewPlaceholder = (activeEmission) => {
@@ -93,10 +96,13 @@ function Provider({children}){
     })
 
     setTableData(newEmissions);
+    sethasPlaceHolder(true);
   }
+
 
   const valueToShare = {
     tableData,
+    hasPlaceHolder,
     editTableData,
     deletePeriodicReview,
     addPeriodicReview,

@@ -13,7 +13,7 @@ import { periodicReviewsHeader } from "@/components/TableConfiguration";
 import TableDataContext from "@/context/mainTableDataContext";
 
 export default function AddModal({activeRow}) {
-  const {cleanPlaceholders, addPeriodicReviewPlaceholder} = useContext(TableDataContext);
+  const {cleanPlaceholders, addPeriodicReviewPlaceholder, hasPlaceHolder} = useContext(TableDataContext);
   const [isOpen, setIsOpen] = useState(false);
   
   const handleDialogChange = (open) => {
@@ -39,7 +39,7 @@ export default function AddModal({activeRow}) {
           <DialogDescription asChild>
             <div>
               <DataTable columns={periodicReviewsHeader} data={activeRow?.periodic_reviews}/>
-              <Button onClick={onAddPeriodicReviewClicked}>Add Periodic Reviews</Button>
+              <Button onClick={onAddPeriodicReviewClicked} disabled={hasPlaceHolder}>Add Periodic Reviews</Button>
             </div>
           </DialogDescription>
         </DialogHeader>
