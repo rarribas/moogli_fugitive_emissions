@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-import { typeOfEquipmentOptions } from './selectsData';
 
 export const emissionsData = [
   { _group: "Air-conditioning" },
