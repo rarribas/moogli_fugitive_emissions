@@ -10,7 +10,7 @@ import {
   SelectValue,
   SelectContent
 } from "@/components/ui/select"
-import { typeOfEquipmentOptions, locationsOptions } from "@/data/selectsData";
+import { typeOfEquipmentOptions, locationsOptions, maintenanceCycleOptions } from "@/data/selectsData";
 import TableDataContext from "@/context/mainTableDataContext"; 
 import useSelectOptions from "@/hooks/useSelectOptions";
 import { useFormValidation } from "@/hooks/useFormValidation";
@@ -27,13 +27,14 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
     capacity: editableRow.capacity,
     location: editableRow.location,
     year: editableRow.year,
-    maintenance_cycle: editableRow.maintenance_cycle,
+    maintenanceCycle: editableRow.maintenanceCycle,
     type: editableRow.type,
     use: editableRow.use,
   });
 
   const typeOptions = useSelectOptions(typeOfEquipmentOptions);
   const locationOpts = useSelectOptions(locationsOptions);
+  const cycleOpts = useSelectOptions(maintenanceCycleOptions);
 
   const onFormSubmit = (ev) =>{ 
     ev.preventDefault();
@@ -124,6 +125,24 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
             </SelectTrigger>
             <SelectContent>
               {locationOpts}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div>
+          <Label htmlFor="maintenanceCycle">Maintenance Cycle</Label>
+          <Select 
+            id="maintenanceCycle" 
+            onValueChange={(value) =>
+              setEditableData({ ...editableData, maintenanceCycle: value })
+            } 
+            value={editableData.maintenanceCycle}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select a Maintenance Cycle" />
+            </SelectTrigger>
+            <SelectContent>
+              {cycleOpts}
             </SelectContent>
           </Select>
         </div>

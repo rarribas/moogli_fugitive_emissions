@@ -1,6 +1,6 @@
 import { Button } from "../Button";
 import Header from "./Header";
-import { getTypeLabel, getLocationLabel } from "@/data/selectsData";
+import { getTypeLabel, getLocationLabel, getMaintanceCycleLabel } from "@/data/selectsData";
 
 export default function DetailsViewMode({editableRow, setEditDetails}) {
   return (
@@ -25,6 +25,10 @@ export default function DetailsViewMode({editableRow, setEditDetails}) {
         <div>
           <h4>Location</h4>
           <p>{getLocationLabel(editableRow.location)}</p>
+        </div>
+         <div>
+          <h4>Maintenance Cycle</h4>
+          <p>{getMaintanceCycleLabel(editableRow.maintenanceCycle)}</p>
         </div>
       </div>
     </div>

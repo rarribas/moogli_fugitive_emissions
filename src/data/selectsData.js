@@ -21,12 +21,26 @@ export const locationsOptions = [
   { label: "Moogli Chile", value: "moogli-chile" },
 ];
 
+export const maintenanceCycleOptions = [
+  { label: "No periodic reviews", value: "no-reviews" },
+  { label: "Every 3 months", value: "3-months" },
+  { label: "Every 6 months", value: "6-months" },
+  { label: "Annually", value: "annually" },
+  { label: "Every 2 years", value: "2-years" },
+];
+
 export const getTypeLabel = (value) => {
   const foundItem = typeOfEquipmentOptions.find((item) => item.value === value )
   return foundItem.label;
 }
 
 export const getLocationLabel = (value) => {
+  console.log(value);
   const foundItem = locationsOptions.find((item) => item.value === value )
+  return foundItem.label;
+}
+
+export const getMaintanceCycleLabel = (value) => {
+  const foundItem = maintenanceCycleOptions.find((item) => item.value === value )
   return foundItem.label;
 }
