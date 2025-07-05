@@ -14,7 +14,7 @@ export default function EditModal({editableRow}) {
   return(
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit</Button>
+        <Button variant="secondary">Edit data</Button>
       </DialogTrigger>
       <DialogContent 
         variant="side_panel"

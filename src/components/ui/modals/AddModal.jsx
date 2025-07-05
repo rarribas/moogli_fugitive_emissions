@@ -33,7 +33,7 @@ export default function AddModal({activeRow}) {
   return(
     <Dialog open={isOpen} onOpenChange={handleDialogChange}>
       <DialogTrigger asChild>
-        <Button variant="outline">Add</Button>
+        <Button>Add data</Button>
       </DialogTrigger>
       <DialogContent aria-describedby="Add Modal Content">
         <DialogHeader>

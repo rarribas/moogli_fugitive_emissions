@@ -46,7 +46,7 @@ export default function DataTable({columns, data}){
             table.getRowModel().rows.map((row) =>
               row.original._group ? (
                 <TableRow key={row.id}>
-                  <TableCell colSpan={columns.length} className="bg-muted font-medium">
+                  <TableCell colSpan={columns.length} className="font-medium">
                     {row.original._group}
                   </TableCell>
                 </TableRow>

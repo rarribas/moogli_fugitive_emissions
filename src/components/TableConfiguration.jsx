@@ -28,6 +28,10 @@ export const headerColumns = [
   {
     accessorKey: "capacity",
     header: "Capacity (kg)",
+    cell: ({ getValue }) => {
+      const value = getValue()
+      return `${value} kg`      
+    },
   },
   {
     accessorKey: "location",
@@ -42,16 +46,16 @@ export const headerColumns = [
     header: "Status",
   },
   {
-    id: "actions", // custom column
-    header: "", // no column title
+    id: "actions",
+    header: "",
     cell: ({ row }) => {
       const original = row.original
       if (original._group) return null
 
       return (
-        <div>
-          <AddModal activeRow={original}/>
+        <div className="flex gap-[6px] justify-end">
           <EditModal editableRow={original}/>
+          <AddModal activeRow={original}/>
         </div> 
       )
     },
