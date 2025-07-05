@@ -1,3 +1,5 @@
+import { getTypeLabel } from "@/data/selectsData";
+
 export function groupData(dataToGroup) {
   // First remove _group keys if any to then regroup again
   const withoutGroups = dataToGroup.filter((data) => {
@@ -15,7 +17,7 @@ export function groupData(dataToGroup) {
   // Now build a new array with _group items before each group
   const result = [];
   for (const type in grouped) {
-    result.push({ _group: type });
+    result.push({ _group: getTypeLabel(type) });
     result.push(...grouped[type]);
   }
 

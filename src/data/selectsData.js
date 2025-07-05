@@ -1,5 +1,5 @@
 export const typeOfEquipmentOptions = [
-  { label: "Air-Conditioning", value: "air-conditioning" },
+  { label: "Air Conditioning", value: "air-conditioning" },
   { label: "Beverage dispenser", value: "beverage-dispenser" },
   { label: "Blast-chillers", value: "blast-chillers" },
   { label: "Chillers", value: "chillers" },
@@ -20,3 +20,14 @@ export const locationsOptions = [
   { label: "Moogli Amsterdam", value: "moogli-amsterdam" },
   { label: "Moogli Chile", value: "moogli-chile" },
 ];
+
+export const getTypeLabel = (value) => {
+  console.log(value);
+  const foundItem = typeOfEquipmentOptions.find((item) => item.value === value )
+  return foundItem.label;
+}
+
+export const getLocationLabel = (value) => {
+  const foundItem = locationsOptions.find((item) => item.value === value )
+  return foundItem.label;
+}

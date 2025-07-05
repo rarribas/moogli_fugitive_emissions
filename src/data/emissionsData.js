@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
+import { getTypeLabel } from "@/data/selectsData";
 
 export const emissionsData = [
-  { _group: "air-conditioning" },
+  { _group: getTypeLabel("air-conditioning") },
   {
     id: uuidv4(),
     equipmentName: "A/C Headquarters-1",
@@ -38,7 +39,7 @@ export const emissionsData = [
     use: "Small Space",
     periodic_reviews: [],
   },
-  { _group: "freezers" },
+  { _group: getTypeLabel("freezers")},
   {
     id: uuidv4(),
     equipmentName: "HQ-freezer1",

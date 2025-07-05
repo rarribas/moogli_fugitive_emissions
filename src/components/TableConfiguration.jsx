@@ -6,6 +6,7 @@ import DatePicker from "@/components/ui/DatePicker";
 import { Input } from "@/components/ui/Input";
 import { emissionsData } from "../data/emissionsData";
 import { groupData } from "@/helpers/groupData";
+import { getLocationLabel } from "@/data/selectsData";
 
 export const headerColumns = [
   {
@@ -27,6 +28,10 @@ export const headerColumns = [
   {
     accessorKey: "location",
     header: "Location",
+    cell: ({ getValue }) => {
+      const value = getValue()
+      return getLocationLabel(value)      
+    },
   },
   {
     accessorKey: "status",
@@ -37,7 +42,8 @@ export const headerColumns = [
     header: "", // no column title
     cell: ({ row }) => {
       const original = row.original
-      if (original._group) return null // skip group header rows
+      console.log(original);
+      if (original._group) return null
 
       return (
         <div>
@@ -79,7 +85,6 @@ export const periodicReviewsHeader = [{
   id: "actions", 
   header: "", 
   cell: ({row}) => {
-    console.log(row.original, "RE RENDERS??")
     return (
       row.original.isPlaceholder ? 
         <AddReviewButton rowToAdd={row.original}/>
