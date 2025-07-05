@@ -29,18 +29,33 @@ export const maintenanceCycleOptions = [
   { label: "Every 2 years", value: "2-years" },
 ];
 
+export const refrigerantTypeOptions = [
+  { label: "R600a", value: "r600a" },
+  { label: "HFC-134a", value: "hfc-134a" },
+  { label: "R-32", value: "r-32" },
+  { label: "R290", value: "r290" },
+  { label: "R11", value: "r11" },
+  { label: "R404A", value: "r404a" },
+  { label: "R-410A", value: "r-410a" },
+  { label: "HFC-125", value: "hfc-125" },
+];
+
 export const getTypeLabel = (value) => {
   const foundItem = typeOfEquipmentOptions.find((item) => item.value === value )
   return foundItem.label;
 }
 
 export const getLocationLabel = (value) => {
-  console.log(value);
   const foundItem = locationsOptions.find((item) => item.value === value )
   return foundItem.label;
 }
 
 export const getMaintanceCycleLabel = (value) => {
   const foundItem = maintenanceCycleOptions.find((item) => item.value === value )
+  return foundItem.label;
+}
+
+export const getRefrigerantTypeLabel = (value) => {
+  const foundItem = refrigerantTypeOptions.find((item) => item.value === value )
   return foundItem.label;
 }

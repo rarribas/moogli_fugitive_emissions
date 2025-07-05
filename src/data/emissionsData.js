@@ -6,7 +6,7 @@ export const emissionsData = [
   {
     id: uuidv4(),
     equipmentName: "A/C Headquarters-1",
-    refrigerantType: "R_404A",
+    refrigerantType: "r404a",
     gwp_factor: "3260",
     capacity: "6.5",
     location: "moogli-valencia",
@@ -28,7 +28,7 @@ export const emissionsData = [
   {
     id: uuidv4(),
     equipmentName: "A/C VAL-1",
-    refrigerantType: "R_404",
+    refrigerantType: "r404a",
     gwp_factor: "3260",
     capacity: "5.0",
     location: "moogli-valencia",
@@ -43,7 +43,7 @@ export const emissionsData = [
   {
     id: uuidv4(),
     equipmentName: "HQ-freezer1",
-    refrigerantType: "R_410",
+    refrigerantType: "r-410a",
     gwp_factor: "2800",
     capacity: "3.2",
     location: "moogli-valencia",

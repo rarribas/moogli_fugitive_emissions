@@ -10,7 +10,12 @@ import {
   SelectValue,
   SelectContent
 } from "@/components/ui/select"
-import { typeOfEquipmentOptions, locationsOptions, maintenanceCycleOptions } from "@/data/selectsData";
+import { 
+  typeOfEquipmentOptions, 
+  locationsOptions, 
+  maintenanceCycleOptions, 
+  refrigerantTypeOptions 
+} from "@/data/selectsData";
 import TableDataContext from "@/context/mainTableDataContext"; 
 import useSelectOptions from "@/hooks/useSelectOptions";
 import { useFormValidation } from "@/hooks/useFormValidation";
@@ -35,6 +40,7 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
   const typeOptions = useSelectOptions(typeOfEquipmentOptions);
   const locationOpts = useSelectOptions(locationsOptions);
   const cycleOpts = useSelectOptions(maintenanceCycleOptions);
+  const refTypeOpts = useSelectOptions(refrigerantTypeOptions);
 
   const onFormSubmit = (ev) =>{ 
     ev.preventDefault();
@@ -130,6 +136,24 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
         </div>
 
         <div>
+          <Label htmlFor="refrigerantType">Refrigerant Type</Label>
+          <Select 
+            id="refrigerantType" 
+            onValueChange={(value) =>
+              setEditableData({ ...editableData, refrigerantType: value })
+            } 
+            value={editableData.refrigerantType}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select a Refrigerant Type" />
+            </SelectTrigger>
+            <SelectContent>
+              {refTypeOpts}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div>
           <Label htmlFor="maintenanceCycle">Maintenance Cycle</Label>
           <Select 
             id="maintenanceCycle" 
@@ -146,7 +170,7 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
             </SelectContent>
           </Select>
         </div>
-        
+
         <Button type="submit">Submit</Button>
       </form>
     </div>

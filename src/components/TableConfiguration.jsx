@@ -6,7 +6,7 @@ import DatePicker from "@/components/ui/DatePicker";
 import { Input } from "@/components/ui/Input";
 import { emissionsData } from "../data/emissionsData";
 import { groupData } from "@/helpers/groupData";
-import { getLocationLabel } from "@/data/selectsData";
+import { getLocationLabel, getRefrigerantTypeLabel } from "@/data/selectsData";
 
 export const headerColumns = [
   {
@@ -16,6 +16,10 @@ export const headerColumns = [
   {
     accessorKey: "refrigerantType",
     header: "Refrigerant Type",
+    cell: ({ getValue }) => {
+      const value = getValue()
+      return getRefrigerantTypeLabel(value)      
+    },
   },
   {
     accessorKey: "gwp_factor",
