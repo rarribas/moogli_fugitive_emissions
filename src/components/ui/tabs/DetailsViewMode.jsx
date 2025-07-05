@@ -1,5 +1,6 @@
 import { Button } from "../Button";
 import Header from "./Header";
+import { getTypeLabel, getLocationLabel } from "@/data/selectsData";
 
 export default function DetailsViewMode({editableRow, setEditDetails}) {
   return (
@@ -18,8 +19,12 @@ export default function DetailsViewMode({editableRow, setEditDetails}) {
           <p>{editableRow.year}</p>
         </div>
         <div>
-          <h4>Capacity</h4>
-          <p>{editableRow.capacity}</p>
+          <h4>Type</h4>
+          <p>{getTypeLabel(editableRow.type)}</p>
+        </div>
+        <div>
+          <h4>Location</h4>
+          <p>{getLocationLabel(editableRow.location)}</p>
         </div>
       </div>
     </div>

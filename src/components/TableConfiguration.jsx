@@ -42,7 +42,6 @@ export const headerColumns = [
     header: "", // no column title
     cell: ({ row }) => {
       const original = row.original
-      console.log(original);
       if (original._group) return null
 
       return (
