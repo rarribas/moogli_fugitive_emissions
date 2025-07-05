@@ -1,6 +1,7 @@
 import { Button } from "../Button";
 import { useContext}  from "react";
 import TableDataContext from "@/context/mainTableDataContext";
+import { Trash } from 'lucide-react';
 
 export default function DeleteReviewButton({rowToDelete}){
   const {deletePeriodicReview} = useContext(TableDataContext);
@@ -12,7 +13,9 @@ export default function DeleteReviewButton({rowToDelete}){
 
   return (
     <>
-      <Button onClick={onButtonClick}>Delete</Button>
+      <Button variant="ghost" onClick={onButtonClick}>
+        <Trash size={24} />
+      </Button>
     </>
   )
 }

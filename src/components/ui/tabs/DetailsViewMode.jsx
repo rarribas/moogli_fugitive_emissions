@@ -1,5 +1,5 @@
 import { Button } from "../Button";
-import Header from "./Header";
+import Header from "../Header";
 import { getTypeLabel, getLocationLabel, getMaintanceCycleLabel, getRefrigerantTypeLabel } from "@/data/selectsData";
 
 export default function DetailsViewMode({editableRow, setEditDetails}) {

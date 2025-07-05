@@ -13,7 +13,7 @@ import {
   TableRow,
 } from "@/components/ui/Table"
 
-export default function DataTable({columns, data}){
+export default function DataTable({className, columns, data}){
   const table = useReactTable({
     data,
     columns,
@@ -22,7 +22,7 @@ export default function DataTable({columns, data}){
 
   return(
     <>
-      <Table>
+      <Table className={className}>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>

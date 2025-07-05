@@ -1,5 +1,5 @@
 import { Button } from "../Button";
-import Header from "./Header";
+import Header from "../Header";
 import { useState } from "react";
 import DetailsEditMode from "./DetailsEditMode";
 import DetailsViewMode from "./DetailsViewMode";

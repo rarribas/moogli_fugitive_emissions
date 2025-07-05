@@ -10,7 +10,7 @@ const dialogContentVariants = cva(
     variants: {
       variant: {
         default:
-          "top-[50%] left-[50%] max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] w-full sm:max-w-lg " +
+          "top-[50%] left-[50%] w-[1000px] max-w-[calc(100%-1rem)] translate-x-[-50%] translate-y-[-50%] w-full" +
           "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
         side_panel:
           "fixed h-screen w-[70%] right-0 top-0 max-w-none " +
@@ -113,7 +113,7 @@ function DialogFooter({
   return (
     <div
       data-slot="dialog-footer"
-      className={cn("flex flex-col-reverse gap-2 sm:flex-row sm:justify-end", className)}
+      className={cn("flex flex-col-reverse gap-2 sm:flex-row", className)}
       {...props} />
   );
 }

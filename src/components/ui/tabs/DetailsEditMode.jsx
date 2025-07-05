@@ -3,7 +3,7 @@ import { Button } from "../Button";
 import { Input } from "../Input";
 import { Label } from "../Label";
 import InputError from "../InputError";
-import Header from "./Header";
+import Header from "../Header";
 import {
   Select,
   SelectTrigger,

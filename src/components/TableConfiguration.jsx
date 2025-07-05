@@ -93,9 +93,13 @@ export const periodicReviewsHeader = [{
   header: "", 
   cell: ({row}) => {
     return (
-      row.original.isPlaceholder ? 
-        <AddReviewButton rowToAdd={row.original}/>
-        : <DeleteReviewButton rowToDelete={row.original}/> 
+      <div className="flex justify-end">
+        {
+          row.original.isPlaceholder ? 
+          <AddReviewButton rowToAdd={row.original}/>
+          : <DeleteReviewButton rowToDelete={row.original}/> 
+        } 
+      </div>
     )
   },
 },];

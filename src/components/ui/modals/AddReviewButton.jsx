@@ -15,7 +15,7 @@ export default function DeleteReviewButton({rowToAdd}){
 
   return (
     <>
-      <Button onClick={onButtonClick}>Submit</Button>
+      <Button  variant="secondary" onClick={onButtonClick}>Submit</Button>
     </>
   )
 }

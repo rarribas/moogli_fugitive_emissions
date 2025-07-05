@@ -13,6 +13,9 @@ import { useContext, useState } from "react";
 import DataTable from "../DataTable";
 import { periodicReviewsHeader } from "@/components/TableConfiguration";
 import TableDataContext from "@/context/mainTableDataContext";
+import {Plus} from "lucide-react"
+import Panel from "../Panel";
+import Header from "../Header";
 
 export default function AddModal({activeRow}) {
   const {cleanPlaceholders, addPeriodicReviewPlaceholder, hasPlaceHolder} = useContext(TableDataContext);
@@ -39,13 +42,25 @@ export default function AddModal({activeRow}) {
         <DialogHeader>
           <DialogTitle>Add Periodic Reviews</DialogTitle>
           <DialogDescription asChild>
-            <div>
-              <DataTable columns={periodicReviewsHeader} data={activeRow?.periodic_reviews}/>
-              <Button onClick={onAddPeriodicReviewClicked} disabled={hasPlaceHolder}>Add Periodic Reviews</Button>
-            </div>
+            <Panel className="border mt-[18px] h-[400px]">
+              <Header className="border-b">
+                <h3 className="font-bold py-4 px-6">{activeRow.equipmentName}</h3>
+              </Header>
+              <DataTable 
+                columns={periodicReviewsHeader} 
+                data={activeRow?.periodic_reviews}
+                className="border-b"
+              />
+              <div className="py-4 px-2">
+                 <Button variant="outline" onClick={onAddPeriodicReviewClicked} disabled={hasPlaceHolder}>
+                  <Plus/>
+                  Add Periodic Reviews
+                </Button>
+              </div>
+            </Panel>
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter>
+        <DialogFooter className="items-end justify-between">
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
@@ -53,7 +68,7 @@ export default function AddModal({activeRow}) {
           clicking "Submit" already updates the data.
           Maybe it’ll make more sense once we hook this up to a real API, 
           instead of just working with mock data*/}
-          <Button onClick={() => setIsOpen(false)}>Save</Button>
+          <Button disabled="true" onClick={() => setIsOpen(false)}>Save</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
