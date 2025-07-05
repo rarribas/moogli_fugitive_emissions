@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { Label } from "../Label";
+import Header from "./Header";
 import {
   Select,
   SelectTrigger,
@@ -49,6 +50,9 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
 
   return(
     <div>
+      <Header>
+        <h2>{editableRow.equipmentName}</h2>
+      </Header>
       <form onSubmit={onFormSubmit}>  
         <div>
           <Label htmlFor="equipmentName">Equipment Name</Label>
