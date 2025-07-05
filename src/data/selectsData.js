@@ -22,7 +22,6 @@ export const locationsOptions = [
 ];
 
 export const getTypeLabel = (value) => {
-  console.log(value);
   const foundItem = typeOfEquipmentOptions.find((item) => item.value === value )
   return foundItem.label;
 }

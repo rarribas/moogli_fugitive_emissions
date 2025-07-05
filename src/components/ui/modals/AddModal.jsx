@@ -5,6 +5,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogFooter,
+  DialogClose,
 } from "@/components/ui/Dialog"
 import { Button } from "../Button";
 import { useContext, useState } from "react";
@@ -43,6 +45,16 @@ export default function AddModal({activeRow}) {
             </div>
           </DialogDescription>
         </DialogHeader>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DialogClose>
+          {/* Note: Not entirely sure if the "Save" button is needed here —
+          clicking "Submit" already updates the data.
+          Maybe it’ll make more sense once we hook this up to a real API, 
+          instead of just working with mock data*/}
+          <Button onClick={() => setIsOpen(false)}>Save</Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )
