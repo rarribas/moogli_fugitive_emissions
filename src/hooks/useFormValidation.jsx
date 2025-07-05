@@ -17,9 +17,7 @@ export function useFormValidation() {
   };
 
   const isValidData = (formElements) => {
-    console.log(formElements, "THE ELEMENTS");
     const emptyElements = getEmptyValues(formElements); 
-    console.log(emptyElements, "ELS");
     if(emptyElements.length > 0){
       setFormErrors(emptyElements);
       return false;
