@@ -155,7 +155,8 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
               </SelectContent>
             </Select>
           </FormSection>
-
+        </div>  
+        <div>
           <FormSection>
             <Label htmlFor="maintenanceCycle">Maintenance Cycle</Label>
             <Select 
@@ -173,7 +174,7 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
               </SelectContent>
             </Select>
           </FormSection>
-        </div>  
+        </div>
         <div className="flex mx-2 my-4 justify-end">
           <Button type="submit">Submit</Button>
         </div>
