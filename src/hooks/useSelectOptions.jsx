@@ -1,4 +1,4 @@
-import {SelectItem} from "@/components/ui/select"
+import {SelectItem} from "@/components/ui/Select"
 
 export default function useSelectOptions(optionsData){
   return (

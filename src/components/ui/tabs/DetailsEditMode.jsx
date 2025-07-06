@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
   SelectContent
-} from "@/components/ui/select"
+} from "@/components/ui/Select"
 import { 
   typeOfEquipmentOptions, 
   locationsOptions, 
