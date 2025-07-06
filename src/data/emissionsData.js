@@ -23,6 +23,10 @@ export const emissionsData = [
       id:uuidv4(),
       date_review: "02/02/2024",
       report: "IMG.png"
+    },{
+      id:uuidv4(),
+      date_review: "02/02/2024",
+      report: "IMG.png"
     }],
   },
   {

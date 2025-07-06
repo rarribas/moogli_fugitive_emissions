@@ -13,6 +13,8 @@ import {
   TableRow,
 } from "@/components/ui/Table"
 
+import {CircleMinus} from "lucide-react";
+
 export default function DataTable({className, columns, data}){
   const table = useReactTable({
     data,
@@ -28,7 +30,7 @@ export default function DataTable({className, columns, data}){
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className="p-4">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -47,7 +49,10 @@ export default function DataTable({className, columns, data}){
               row.original._group ? (
                 <TableRow key={row.id}>
                   <TableCell colSpan={columns.length} className="font-medium">
-                    {row.original._group}
+                    <div className="flex items-center gap-2 pl-2">
+                      <CircleMinus size={12}/>
+                      {row.original._group}
+                    </div>
                   </TableCell>
                 </TableRow>
               ) : (
@@ -56,7 +61,7 @@ export default function DataTable({className, columns, data}){
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="py-4 pl-6">
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

@@ -13,7 +13,7 @@ import { useContext, useState } from "react";
 import DataTable from "../DataTable";
 import { periodicReviewsHeader } from "@/components/TableConfiguration";
 import TableDataContext from "@/context/mainTableDataContext";
-import {Plus} from "lucide-react"
+import {Plus} from "lucide-react";
 import Panel from "../Panel";
 import Header from "../Header";
 
@@ -42,7 +42,7 @@ export default function AddModal({activeRow}) {
         <DialogHeader>
           <DialogTitle>Add Periodic Reviews</DialogTitle>
           <DialogDescription asChild>
-            <Panel className="border mt-[18px] h-[400px]">
+            <Panel className="border mt-[18px] h-[400px] overflow-y-auto">
               <Header className="border-b">
                 <h3 className="py-4 px-6">{activeRow.equipmentName}</h3>
               </Header>
