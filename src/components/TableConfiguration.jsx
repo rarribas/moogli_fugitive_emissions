@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/Input";
 import { emissionsData } from "../data/emissionsData";
 import { groupData } from "@/helpers/groupData";
 import { getLocationLabel, getRefrigerantTypeLabel } from "@/data/selectsData";
+import InfoCell from "./ui/InfoCell";
 
 export const headerColumns = [
   {
@@ -38,12 +39,26 @@ export const headerColumns = [
     header: "Location",
     cell: ({ getValue }) => {
       const value = getValue()
-      return getLocationLabel(value)      
+      return(
+        <InfoCell>
+          <h4>{getLocationLabel(value)}</h4>
+          <p className="text-xs">Office</p>
+        </InfoCell>
+      )
     },
   },
   {
     accessorKey: "status",
     header: "Status",
+    cell: ({ getValue }) => {
+      const value = getValue()
+      return(
+        <InfoCell className="border rounded-[16px]">
+          <h4>{value}</h4>
+          <p className="text-xs">12 months remaining</p>
+        </InfoCell>
+      )
+    },
   },
   {
     id: "actions",
