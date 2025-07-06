@@ -13,10 +13,12 @@ export const headerColumns = [
   {
     accessorKey: "equipmentName",
     header: "Equipment Name",
+    meta: { className: "text-center" },
   },
   {
     accessorKey: "refrigerantType",
     header: "Refrigerant Type",
+    meta: { className: "text-center" },
     cell: ({ getValue }) => {
       const value = getValue()
       return getRefrigerantTypeLabel(value)      
@@ -25,10 +27,12 @@ export const headerColumns = [
   {
     accessorKey: "gwp_factor",
     header: "GWP Factor",
+    meta: { className: "text-center" },
   },
   {
     accessorKey: "capacity",
     header: "Capacity (kg)",
+    meta: { className: "text-center" },
     cell: ({ getValue }) => {
       const value = getValue()
       return `${value} kg`      
@@ -37,6 +41,7 @@ export const headerColumns = [
   {
     accessorKey: "location",
     header: "Location",
+    meta: { className: "text-center" },
     cell: ({ getValue }) => {
       const value = getValue()
       return(
@@ -50,6 +55,7 @@ export const headerColumns = [
   {
     accessorKey: "status",
     header: "Status",
+    meta: { className: "text-center" },
     cell: ({ getValue }) => {
       const value = getValue()
       return(

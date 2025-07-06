@@ -13,6 +13,8 @@ import {
   TableRow,
 } from "@/components/ui/Table"
 
+import { cn } from "@/lib/utils"
+
 import {CircleMinus} from "lucide-react";
 
 export default function DataTable({className, columns, data}){
@@ -30,7 +32,7 @@ export default function DataTable({className, columns, data}){
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id} className="p-4">
+                  <TableHead key={header.id} className={cn("p-4", header.column.columnDef.meta?.className)}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(
