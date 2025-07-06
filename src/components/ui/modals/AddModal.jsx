@@ -44,7 +44,7 @@ export default function AddModal({activeRow}) {
           <DialogDescription asChild>
             <Panel className="border mt-[18px] h-[400px]">
               <Header className="border-b">
-                <h3 className="font-bold py-4 px-6">{activeRow.equipmentName}</h3>
+                <h3 className="py-4 px-6">{activeRow.equipmentName}</h3>
               </Header>
               <DataTable 
                 columns={periodicReviewsHeader} 

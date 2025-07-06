@@ -2,8 +2,10 @@ import { useState, useContext, useRef } from "react";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { Label } from "../Label";
+import FormSection from "../FormSection";
 import InputError from "../InputError";
 import Header from "../Header";
+import Panel from "../Panel";
 import {
   Select,
   SelectTrigger,
@@ -69,110 +71,113 @@ export default function DetailsEditMode({editableRow, setEditDetails}){
   }
 
   return(
-    <div>
-      <Header>
-        <h2>{editableRow.equipmentName}</h2>
+    <Panel className="border p-2">
+      <Header className="pt-1 px-2 pb-0">
+        <h3>{editableRow.equipmentName}</h3>
       </Header>
-      <form onSubmit={onFormSubmit} ref={formRef}>  
-        <div>
-          <Label htmlFor="equipmentName">Equipment Name</Label>
-          <Input 
-            id="equipmentName" 
-            value={editableData.equipmentName} 
-            onChange={onInputChange} 
-            className={!isValidField("equipmentName") ? "border-red-500 focus-visible:ring-red-500" : ""}
-          />
-          {!isValidField("equipmentName") && <InputError>Equipment Name cannot be empty</InputError>}
-        </div>
-        <div>
-          <Label htmlFor="year">Year</Label>
-          <Input id="year" type="number" min={1900} step={1} data-optional={true} value={editableData.year} onChange={onInputChange} />
-        </div>
-        <div>
-          <Label htmlFor="capacity">Capacity</Label>
-          <Input 
-            id="capacity" 
-            type="number" 
-            value={editableData.capacity} 
-            onChange={onInputChange} 
-            className={!isValidField("capacity") ? "border-red-500 focus-visible:ring-red-500" : ""}
-          />
-          {!isValidField("capacity") && <InputError>Capacity value cannot be empty</InputError>}
-        </div>
-        <div>
-          <Label htmlFor="type">Type</Label>
-          <Select 
-            id="type" 
-            onValueChange={(value) =>
-              setEditableData({ ...editableData, type: value })
-            } 
-            value={editableData.type}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Select a Type" />
-            </SelectTrigger>
-            <SelectContent>
-              {typeOptions}
-            </SelectContent>
-          </Select>
-        </div>
+      <form onSubmit={onFormSubmit} ref={formRef}>
+        <div className="grid grid-cols-2">
+          <FormSection>
+            <Label htmlFor="equipmentName">Equipment Name</Label>
+            <Input 
+              id="equipmentName" 
+              value={editableData.equipmentName} 
+              onChange={onInputChange} 
+              className={!isValidField("equipmentName") ? "border-red-500 focus-visible:ring-red-500" : ""}
+            />
+            {!isValidField("equipmentName") && <InputError>Equipment Name cannot be empty</InputError>}
+          </FormSection>
+          <FormSection>
+            <Label htmlFor="year">Year</Label>
+            <Input id="year" type="number" min={1900} step={1} data-optional={true} value={editableData.year} onChange={onInputChange} />
+          </FormSection>
+          <FormSection>
+            <Label htmlFor="capacity">Capacity</Label>
+            <Input 
+              id="capacity" 
+              type="number" 
+              value={editableData.capacity} 
+              onChange={onInputChange} 
+              className={!isValidField("capacity") ? "border-red-500 focus-visible:ring-red-500" : ""}
+            />
+            {!isValidField("capacity") && <InputError>Capacity value cannot be empty</InputError>}
+          </FormSection>
+          <FormSection>
+            <Label htmlFor="type">Type</Label>
+            <Select 
+              id="type" 
+              onValueChange={(value) =>
+                setEditableData({ ...editableData, type: value })
+              } 
+              value={editableData.type}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select a Type" />
+              </SelectTrigger>
+              <SelectContent>
+                {typeOptions}
+              </SelectContent>
+            </Select>
+          </FormSection>
 
-        <div>
-          <Label htmlFor="location">Location</Label>
-          <Select 
-            id="location" 
-            onValueChange={(value) =>
-              setEditableData({ ...editableData, location: value })
-            } 
-            value={editableData.location}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Select a Location" />
-            </SelectTrigger>
-            <SelectContent>
-              {locationOpts}
-            </SelectContent>
-          </Select>
-        </div>
+          <FormSection>
+            <Label htmlFor="location">Location</Label>
+            <Select 
+              id="location" 
+              onValueChange={(value) =>
+                setEditableData({ ...editableData, location: value })
+              } 
+              value={editableData.location}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select a Location" />
+              </SelectTrigger>
+              <SelectContent>
+                {locationOpts}
+              </SelectContent>
+            </Select>
+          </FormSection>
 
-        <div>
-          <Label htmlFor="refrigerantType">Refrigerant Type</Label>
-          <Select 
-            id="refrigerantType" 
-            onValueChange={(value) =>
-              setEditableData({ ...editableData, refrigerantType: value })
-            } 
-            value={editableData.refrigerantType}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Select a Refrigerant Type" />
-            </SelectTrigger>
-            <SelectContent>
-              {refTypeOpts}
-            </SelectContent>
-          </Select>
-        </div>
+          <FormSection>
+            <Label htmlFor="refrigerantType">Refrigerant Type</Label>
+            <Select 
+              id="refrigerantType" 
+              onValueChange={(value) =>
+                setEditableData({ ...editableData, refrigerantType: value })
+              } 
+              value={editableData.refrigerantType}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select a Refrigerant Type" />
+              </SelectTrigger>
+              <SelectContent>
+                {refTypeOpts}
+              </SelectContent>
+            </Select>
+          </FormSection>
 
-        <div>
-          <Label htmlFor="maintenanceCycle">Maintenance Cycle</Label>
-          <Select 
-            id="maintenanceCycle" 
-            onValueChange={(value) =>
-              setEditableData({ ...editableData, maintenanceCycle: value })
-            } 
-            value={editableData.maintenanceCycle}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Select a Maintenance Cycle" />
-            </SelectTrigger>
-            <SelectContent>
-              {cycleOpts}
-            </SelectContent>
-          </Select>
+          <FormSection>
+            <Label htmlFor="maintenanceCycle">Maintenance Cycle</Label>
+            <Select 
+              id="maintenanceCycle" 
+              onValueChange={(value) =>
+                setEditableData({ ...editableData, maintenanceCycle: value })
+              } 
+              value={editableData.maintenanceCycle}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select a Maintenance Cycle" />
+              </SelectTrigger>
+              <SelectContent>
+                {cycleOpts}
+              </SelectContent>
+            </Select>
+          </FormSection>
+        </div>  
+        <div className="flex mx-2 my-4 justify-end">
+          <Button type="submit">Submit</Button>
         </div>
-
-        <Button type="submit">Submit</Button>
       </form>
-    </div>
+    </Panel>
   )
 }
