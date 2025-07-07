@@ -49,6 +49,8 @@ export default function DatePicker({onChange}) {
             if (isValidDate(inputDate)) {
               setDate(inputDate)
               setMonth(inputDate)
+              
+              if(onChange) onChange(formatDate(inputDate))
             }
           }}
           onKeyDown={(e) => {
