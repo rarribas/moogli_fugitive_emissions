@@ -41,25 +41,26 @@ export default function AddModal({activeRow}) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Add Periodic Reviews</DialogTitle>
-          <DialogDescription asChild>
-            <Panel className="border mt-[18px] h-[400px] overflow-y-auto">
-              <Header className="border-b">
-                <h3 className="py-4 px-6">{activeRow.equipmentName}</h3>
-              </Header>
-              <DataTable 
-                columns={periodicReviewsHeader} 
-                data={activeRow?.periodic_reviews}
-                className="border-b"
-              />
-              <div className="py-4 px-2">
-                 <Button variant="outline" onClick={onAddPeriodicReviewClicked} disabled={hasPlaceHolder}>
-                  <Plus/>
-                  Add Periodic Reviews
-                </Button>
-              </div>
-            </Panel>
-          </DialogDescription>
         </DialogHeader>
+        <DialogDescription className="sr-only">
+          Dialog content related to adding periodic reviews.
+        </DialogDescription>
+        <Panel className="border mt-[18px] h-[400px] overflow-y-auto">
+          <Header className="border-b">
+            <h3 className="py-4 px-6">{activeRow.equipmentName}</h3>
+          </Header>
+          <DataTable 
+            columns={periodicReviewsHeader} 
+            data={activeRow?.periodic_reviews}
+            className="border-b"
+          />
+          <div className="py-4 px-2">
+              <Button variant="outline" onClick={onAddPeriodicReviewClicked} disabled={hasPlaceHolder}>
+              <Plus/>
+              Add Periodic Reviews
+            </Button>
+          </div>
+        </Panel>
         <DialogFooter className="items-end justify-between">
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
