@@ -38,7 +38,7 @@ export default function AddModal({activeRow}) {
       <DialogTrigger asChild>
         <Button>Add data</Button>
       </DialogTrigger>
-      <DialogContent aria-describedby="Add Modal Content">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>Add Periodic Reviews</DialogTitle>
           <DialogDescription asChild>
@@ -68,7 +68,7 @@ export default function AddModal({activeRow}) {
           clicking "Submit" already updates the data.
           Maybe it’ll make more sense once we hook this up to a real API, 
           instead of just working with mock data*/}
-          <Button disabled="true" onClick={() => setIsOpen(false)}>Save</Button>
+          <Button disabled={true} onClick={() => setIsOpen(false)}>Save</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
